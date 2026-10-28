@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src https://cdn.discordapp.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Vencord Server Cleanup · Review</title>
+    <link rel="stylesheet" href="src/review.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-icon">S</span>
+          <div>Server Cleanup<small>KEEP WHAT MATTERS</small></div>
+        </div>
+        <div class="safe-tag">◉ Review only · No account actions</div>
+        <div class="side-label">VIEWS</div>
+        <nav id="views" aria-label="Review views"></nav>
+        <div class="side-label topic-label">SUGGESTED GROUPS</div>
+        <nav id="topics" aria-label="Folder groups"></nav>
+        <div class="side-note">
+          Groups are suggested from names and channels, not confirmed relationships. Edit them in
+          each server card.
+        </div>
+        <div class="privacy-note">
+          <strong>You stay in control.</strong>
+          <p>
+            This reviewer cannot leave, delete, mute, or move anything in Discord. Decisions remain
+            a draft.
+          </p>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">REVIEW FIRST. CHANGE ONLY WHAT YOU APPROVE.</div>
+            <h1>A quieter server list.</h1>
+            <p class="subtitle">Recognize your people. Keep what matters.</p>
+          </div>
+          <div class="file-actions">
+            <a class="button secondary" href="?demo=1" target="_blank" rel="noopener">Open demo</a
+            ><label class="button secondary"
+              >Import inventory<input
+                id="inventory-file"
+                type="file"
+                accept=".json,application/json" /></label
+            ><label class="button secondary"
+              >Restore decisions<input
+                id="draft-file"
+                type="file"
+                accept=".json,application/json" /></label
+            ><button id="export" class="button primary" disabled>Download draft</button>
+          </div>
+        </header>
+        <div class="summary-strip">
+          <div><strong id="total">0</strong><span>servers</span></div>
+          <div><strong id="friend-total">—</strong><span>with detected friends</span></div>
+          <div>
+            <strong id="proposal-total">0</strong><span>proposed departures, not authorized</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-caption">
+              <span id="progress-caption">No inventory</span><span id="save-state">No changes</span>
+            </div>
+            <progress id="progress" value="0" max="100"></progress>
+          </div>
+        </div>
+        <div id="status" class="status" role="status">
+          Import an inventory to begin, or open the synthetic demo.
+        </div>
+        <div id="social-notice" class="social-notice"></div>
+        <section class="workspace">
+          <div class="list-pane">
+            <div class="list-toolbar">
+              <h2 id="view-title">All servers</h2>
+              <span id="shown" class="count">0</span>
+            </div>
+            <input
+              id="search"
+              type="search"
+              placeholder="Server, friend, channel, or note…"
+              aria-label="Search servers, friends, channels, or notes"
+            />
+            <div class="filters">
+              <select id="decision-filter" aria-label="Filter decisions">
+                <option value="all">All decisions</option>
+                <option value="review">To review</option>
+                <option value="keep">Keep</option>
+                <option value="leave">Proposed departure</option>
+                <option value="mute">Consider muting</option></select
+              ><select id="sort" aria-label="Sort servers">
+                <option value="priority">Review first</option>
+                <option value="name">Name A–Z</option>
+                <option value="friends">Most detected friends</option>
+                <option value="members">Fewest members</option>
+              </select>
+            </div>
+            <div id="server-list" role="list" aria-label="Servers"></div>
+          </div>
+          <div class="detail-pane">
+            <div class="detail-nav">
+              <button id="prev" class="button ghost" aria-label="Previous server" disabled>
+                ← Previous</button
+              ><span id="position"></span
+              ><button id="next" class="button ghost" aria-label="Next server" disabled>
+                Next →
+              </button>
+            </div>
+            <div id="detail">
+              <div class="empty-state">
+                Your inventory stays on this device.<br />Import a capture to start reviewing
+                servers one by one.
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <span id="capture-info"></span
+          ><label class="image-toggle"
+            ><input id="images" type="checkbox" /> Load images from Discord CDN</label
+          ><span
+            >Shortcuts: J/K navigate · 1 keep · 2 propose leaving · 3 consider muting · 4
+            pending</span
+          >
+        </footer>
+      </main>
+    </div>
+    <script src="src/review-model.js"></script>
+    <script src="src/demo.js"></script>
+    <script src="src/review-ui.js"></script>
+  </body>
+</html>

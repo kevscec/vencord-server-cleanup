@@ -1,0 +1,25 @@
+{
+  "name": "vencord-server-cleanup",
+  "version": "1.0.0",
+  "description": "Local-first Discord server review, cleanup, and folder organization for Vencord.",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test tests/*.test.cjs",
+    "test:browser": "playwright test",
+    "build": "node scripts/build.mjs",
+    "plan": "node scripts/plan.mjs",
+    "build:executor": "node scripts/build-executor.mjs",
+    "verify:result": "node scripts/verify-result.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "prettier": "3.9.10"
+  }
+}
