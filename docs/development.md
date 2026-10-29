@@ -17,7 +17,13 @@ tests/            Synthetic unit, CLI, and browser tests
 
 `npm run build` writes standalone capture scripts and a copy of the static reviewer under `dist/`. It does not include an account, plan, or executor. `npm run build:executor` is a separate explicit operation requiring your own private preview.
 
+## Coding agents
+
+Read the root [AGENTS.md](../AGENTS.md) before making changes. It maps modules to their tests, records the account-action and privacy boundaries, and defines the expected change workflow. Keep that guide canonical rather than copying it into provider-specific instruction files. A small contract test checks its local links, documented npm commands, and instruction entrypoints.
+
 ## Verification
+
+Run `npm run verify` for the same complete gate used by CI. It combines formatting, syntax, unit/CLI tests, browser tests, and packaging. The individual commands below are useful during focused iteration.
 
 - `npm run check`: JavaScript syntax and local app asset references.
 - `npm test`: validation, cache semantics, persistence, account binding, scope checks, native-adapter fixtures, CLI generation, and result verification.

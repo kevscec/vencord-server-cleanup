@@ -54,15 +54,16 @@ These commands only generate local files. To run approved operations, inspect `d
 
 See [security and privacy](SECURITY.md) and the [project structure](docs/development.md).
 
+## For coding agents
+
+Start with [AGENTS.md](AGENTS.md), the canonical architecture, test, and safety guide. Claude Code and GitHub Copilot have short instruction entrypoints that point to it. `npm run verify` is the shared local/CI gate; development never requires a live Discord account or credentials.
+
 ## Development
 
 ```sh
 npm ci --ignore-scripts
-npm run check
-npm test
 npx playwright install chromium
-npm run test:browser
-npm run build
+npm run verify
 ```
 
 CI uses synthetic fixtures and mocked native controls—never a Discord account. The demo is isolated from real review storage and cannot be used to generate an execution plan.
